@@ -29,7 +29,7 @@ class CustomButton extends StatelessWidget {
             text,
             style: kTextStyle.titleSmall!.copyWith(
               color: textColor,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w900,
             ),
           ),
         ),
