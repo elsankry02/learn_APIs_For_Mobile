@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:learn_auth/router/router.dart';
 
-class AuthApp extends StatelessWidget {
-  const AuthApp({super.key});
+class LearnAuthLoginSignup extends StatelessWidget {
+  const LearnAuthLoginSignup({super.key});
 
   @override
   Widget build(BuildContext context) {
