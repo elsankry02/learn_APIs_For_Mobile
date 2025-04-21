@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:learn_auth/views/welcome_page/login_button_page.dart';
-import 'package:learn_auth/views/welcome_page/widget/main_bottom_widget.dart';
-import 'package:learn_auth/views/welcome_page/widget/main_top_widget.dart';
+import 'package:learn_auth/components/custom_align_widget.dart';
+import 'package:learn_auth/constant/image_manger.dart';
+import 'package:learn_auth/views/welcome_page/widget/login_button_page.dart';
 
 @RoutePage()
 class WelcomePage extends StatelessWidget {
@@ -12,7 +12,17 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        children: [MainTopWidget(), LoginButtonPage(), MainBottomWidget()],
+        children: [
+          CustomAlignWidget(
+            alignment: Alignment.topLeft,
+            imageName: ImageManger.kMainTop,
+          ),
+          LoginButtonPage(),
+          CustomAlignWidget(
+            alignment: Alignment.bottomLeft,
+            imageName: ImageManger.kMainBottom,
+          ),
+        ],
       ),
     );
   }
