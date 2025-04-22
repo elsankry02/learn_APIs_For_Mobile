@@ -5,10 +5,11 @@ import 'package:learn_auth/components/custom_align_widget.dart';
 import 'package:learn_auth/components/custom_button.dart';
 import 'package:learn_auth/components/custom_textform_field.dart';
 import 'package:learn_auth/components/custom_textformfiled_password.dart';
+import 'package:learn_auth/components/richtext_widget.dart';
 import 'package:learn_auth/constant/color_manger.dart';
 import 'package:learn_auth/constant/image_manger.dart';
 import 'package:learn_auth/constant/svg_manger.dart';
-import 'package:learn_auth/components/richtext_widget.dart';
+import 'package:learn_auth/router/router.dart';
 
 @RoutePage()
 class LoginPage extends StatefulWidget {
@@ -60,6 +61,7 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(height: 40),
                 // Phone
                 CustomTextformFieldPhone(
+                  keyboardType: TextInputType.phone,
                   hintText: 'Phone',
                   prefixIcon: Icon(Icons.person, color: kPrimaryColor),
                   validator: (value) {
@@ -95,8 +97,14 @@ class _LoginPageState extends State<LoginPage> {
                   color: kPrimaryColor,
                   textColor: kPrimaryLightColor,
                 ),
-                SizedBox(height: 40),
-                RichTextWidget(),
+                SizedBox(height: 30),
+                RichTextWidget(
+                  onTap: () {
+                    context.router.replace(SignupRoute());
+                  },
+                  title: "Don't have an Account ? ",
+                  subTitle: "Sign Up",
+                ),
               ],
             ),
           ),

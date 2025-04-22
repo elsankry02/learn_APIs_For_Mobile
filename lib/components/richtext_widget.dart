@@ -1,12 +1,12 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:learn_auth/constant/color_manger.dart';
-import 'package:learn_auth/router/router.dart';
 
 class RichTextWidget extends StatelessWidget {
-  const RichTextWidget({super.key});
-
+  const RichTextWidget({super.key, this.title, this.subTitle, this.onTap});
+  final String? title;
+  final String? subTitle;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     final kTextStyle = Theme.of(context).textTheme;
@@ -16,20 +16,16 @@ class RichTextWidget extends StatelessWidget {
       text: TextSpan(
         children: [
           TextSpan(
-            text: "Don't have an Account ? ",
+            text: title,
             style: kTextStyle.labelMedium!.copyWith(color: color),
           ),
           TextSpan(
-            text: "Sign Up",
+            text: subTitle,
             style: kTextStyle.labelLarge!.copyWith(
               color: color,
               fontWeight: FontWeight.w900,
             ),
-            recognizer:
-                TapGestureRecognizer()
-                  ..onTap = () {
-                    context.router.push(SignupRoute());
-                  },
+            recognizer: TapGestureRecognizer()..onTap = onTap,
           ),
         ],
       ),
