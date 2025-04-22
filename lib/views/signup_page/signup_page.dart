@@ -38,9 +38,15 @@ class _SignupPageState extends State<SignupPage> {
     return Scaffold(
       body: Stack(
         children: [
+          // topLeft
           CustomAlignWidget(
             alignment: Alignment.topLeft,
             imageName: ImageManger.kSignupTop,
+          ),
+          // bottomRight
+          CustomAlignWidget(
+            alignment: Alignment.bottomRight,
+            imageName: ImageManger.kMainBottom,
           ),
           Form(
             key: formKey,
@@ -89,6 +95,7 @@ class _SignupPageState extends State<SignupPage> {
                   },
                 ),
                 SizedBox(height: 20),
+                // SIGNUP Botton
                 CustomButton(
                   onTap: () {
                     formKey.currentState!.validate();
@@ -105,6 +112,7 @@ class _SignupPageState extends State<SignupPage> {
                   title: "Already have an Account ? ",
                   subTitle: "Login",
                 ),
+                SizedBox(height: 30),
               ],
             ),
           ),

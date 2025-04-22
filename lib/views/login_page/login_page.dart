@@ -38,9 +38,15 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Stack(
         children: [
+          // topLeft
           CustomAlignWidget(
             alignment: Alignment.topLeft,
             imageName: ImageManger.kMainTop,
+          ),
+          // bottomRight
+          CustomAlignWidget(
+            alignment: Alignment.bottomRight,
+            imageName: ImageManger.kLoginBottom,
           ),
           Form(
             key: formKey,
@@ -89,6 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                   },
                 ),
                 SizedBox(height: 20),
+                // LOGIN Button
                 CustomButton(
                   onTap: () {
                     formKey.currentState!.validate();
@@ -105,6 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                   title: "Don't have an Account ? ",
                   subTitle: "Sign Up",
                 ),
+                SizedBox(height: 30),
               ],
             ),
           ),
