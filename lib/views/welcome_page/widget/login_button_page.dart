@@ -14,17 +14,19 @@ class LoginButtonPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final kTextStyle = Theme.of(context).textTheme;
     final size = SizedBox(height: 80);
-
+    final color = ColorManger.kPrimaryColor;
     return Center(
       child: Column(
         children: [
           size,
           Text(
-            'Welcome To Learn Auth',
-            style: kTextStyle.titleLarge!.copyWith(fontWeight: FontWeight.w600),
+            'Welcome To Learn Api',
+            style: kTextStyle.titleLarge!.copyWith(
+              fontWeight: FontWeight.w900,
+              color: color,
+            ),
           ),
           size,
-
           SvgPicture.asset(SvgManger.kChat),
           size,
           // LOGIN

@@ -1,24 +1,39 @@
-import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:learn_auth/components/custom_align_widget.dart';
 import 'package:learn_auth/components/custom_button.dart';
 import 'package:learn_auth/components/custom_textform_field.dart';
+import 'package:learn_auth/components/custom_textformfiled_password.dart';
 import 'package:learn_auth/constant/color_manger.dart';
 import 'package:learn_auth/constant/image_manger.dart';
 import 'package:learn_auth/constant/svg_manger.dart';
+import 'package:learn_auth/components/richtext_widget.dart';
 
 @RoutePage()
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final formKey = GlobalKey<FormState>();
+  final passwordController = TextEditingController();
+  final phoneController = TextEditingController();
+  @override
+  void dispose() {
+    passwordController.dispose();
+    phoneController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final kPrimaryColor = ColorManger.kPrimaryColor;
     final kPrimaryLightColor = ColorManger.kPrimaryLightColor;
     final kTextStyle = Theme.of(context).textTheme;
-    final size20 = SizedBox(height: 30);
-    final size40 = SizedBox(height: 40);
     return Scaffold(
       body: Stack(
         children: [
@@ -26,48 +41,64 @@ class LoginPage extends StatelessWidget {
             alignment: Alignment.topLeft,
             imageName: ImageManger.kMainTop,
           ),
-          Center(
-            child: Column(
+          Form(
+            key: formKey,
+            child: ListView(
+              padding: EdgeInsets.zero,
               children: [
                 SizedBox(height: 80),
                 Text(
+                  textAlign: TextAlign.center,
                   'LOGIN',
                   style: kTextStyle.titleLarge!.copyWith(
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w900,
                     color: kPrimaryColor,
                   ),
                 ),
-                size40,
+                SizedBox(height: 40),
                 SvgPicture.asset(SvgManger.kLogin),
-                size40,
+                SizedBox(height: 40),
                 // Phone
-                CustomTextformField(
+                CustomTextformFieldPhone(
                   hintText: 'Phone',
                   prefixIcon: Icon(Icons.person, color: kPrimaryColor),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'not valid';
+                    }
+                    return null;
+                  },
                 ),
-                size20,
+                SizedBox(height: 20),
                 // Password
-                CustomTextformField(
+                CustomTextformFieldPassword(
+                  controller: passwordController,
                   hintText: 'Password',
                   prefixIcon: Icon(Icons.lock, color: kPrimaryColor),
                   suffixIcon: Icon(
                     Icons.remove_red_eye_sharp,
                     color: kPrimaryColor,
                   ),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'not valid';
+                    }
+                    return null;
+                  },
                 ),
-                size20,
+                SizedBox(height: 20),
                 CustomButton(
-                  onTap: () {},
+                  onTap: () {
+                    formKey.currentState!.validate();
+                  },
                   text: 'LOGIN',
                   color: kPrimaryColor,
                   textColor: kPrimaryLightColor,
                 ),
+                SizedBox(height: 40),
+                RichTextWidget(),
               ],
             ),
-          ),
-          CustomAlignWidget(
-            alignment: Alignment.bottomRight,
-            imageName: ImageManger.kLoginBottom,
           ),
         ],
       ),

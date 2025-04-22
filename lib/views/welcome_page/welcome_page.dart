@@ -13,14 +13,17 @@ class WelcomePage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
+          // image topLeft
           CustomAlignWidget(
             alignment: Alignment.topLeft,
             imageName: ImageManger.kMainTop,
           ),
+          // Ui
           LoginButtonPage(),
+          // image bottomLeft
           CustomAlignWidget(
-            alignment: Alignment.bottomLeft,
-            imageName: ImageManger.kMainBottom,
+            alignment: Alignment.bottomRight,
+            imageName: ImageManger.kLoginBottom,
           ),
         ],
       ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:learn_auth/constant/color_manger.dart';
 
-class CustomTextformFieldPhone extends StatefulWidget {
-  const CustomTextformFieldPhone({
+class CustomTextformFieldPassword extends StatefulWidget {
+  const CustomTextformFieldPassword({
     super.key,
     this.validator,
     this.keyboardType,
@@ -19,26 +19,37 @@ class CustomTextformFieldPhone extends StatefulWidget {
   final TextEditingController? controller;
 
   @override
-  State<CustomTextformFieldPhone> createState() => _MyWidgetState();
+  State<CustomTextformFieldPassword> createState() => _MyWidgetState();
 }
 
-class _MyWidgetState extends State<CustomTextformFieldPhone> {
+class _MyWidgetState extends State<CustomTextformFieldPassword> {
+  bool isSelected = false;
   @override
   Widget build(BuildContext context) {
     final text = Theme.of(context).textTheme;
     final kPrimaryLightColor = ColorManger.kPrimaryLightColor;
-    // final kPrimaryColor = ColorManger.kPrimaryColor;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 80),
       child: TextFormField(
         controller: widget.controller,
+        obscureText: isSelected ? false : true,
         keyboardType: widget.keyboardType,
         validator: widget.validator,
         decoration: InputDecoration(
           hintText: widget.hintText,
           hintStyle: text.titleSmall!.copyWith(fontWeight: FontWeight.w600),
           prefixIcon: widget.prefixIcon,
-
+          suffixIcon: GestureDetector(
+            onTap: () {
+              setState(() {
+                isSelected = !isSelected;
+              });
+            },
+            child:
+                isSelected
+                    ? Icon(Icons.remove_red_eye)
+                    : Icon(Icons.visibility_off),
+          ),
           filled: true,
           fillColor: kPrimaryLightColor,
           errorBorder: outlineInputBorder(Colors.red),
