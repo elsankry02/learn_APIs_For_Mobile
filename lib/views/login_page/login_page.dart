@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:learn_auth/components/custom_align_widget.dart';
 import 'package:learn_auth/components/custom_button.dart';
+import 'package:learn_auth/components/custom_richtext_widget.dart';
 import 'package:learn_auth/components/custom_textform_field.dart';
 import 'package:learn_auth/components/custom_textformfiled_password.dart';
-import 'package:learn_auth/components/richtext_widget.dart';
 import 'package:learn_auth/constant/color_manger.dart';
 import 'package:learn_auth/constant/image_manger.dart';
 import 'package:learn_auth/constant/svg_manger.dart';
@@ -105,7 +105,7 @@ class _LoginPageState extends State<LoginPage> {
                   textColor: kPrimaryLightColor,
                 ),
                 SizedBox(height: 30),
-                RichTextWidget(
+                CustomRichTextWidget(
                   onTap: () {
                     context.router.replace(SignupRoute());
                   },

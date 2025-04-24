@@ -18,13 +18,13 @@ class WelcomePage extends StatelessWidget {
             alignment: Alignment.topLeft,
             imageName: ImageManger.kMainTop,
           ),
-          // Ui
-          LoginButtonPage(),
           // image bottomLeft
           CustomAlignWidget(
             alignment: Alignment.bottomRight,
             imageName: ImageManger.kLoginBottom,
           ),
+          // Ui
+          LoginButtonPage(),
         ],
       ),
     );

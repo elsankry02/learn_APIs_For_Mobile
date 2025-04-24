@@ -2,8 +2,13 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:learn_auth/constant/color_manger.dart';
 
-class RichTextWidget extends StatelessWidget {
-  const RichTextWidget({super.key, this.title, this.subTitle, this.onTap});
+class CustomRichTextWidget extends StatelessWidget {
+  const CustomRichTextWidget({
+    super.key,
+    this.title,
+    this.subTitle,
+    this.onTap,
+  });
   final String? title;
   final String? subTitle;
   final void Function()? onTap;

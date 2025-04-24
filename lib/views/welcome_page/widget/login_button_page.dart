@@ -13,7 +13,7 @@ class LoginButtonPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final kTextStyle = Theme.of(context).textTheme;
-    final size = SizedBox(height: 80);
+    final size = SizedBox(height: 50);
     final color = ColorManger.kPrimaryColor;
     return Center(
       child: Column(
