@@ -2,7 +2,7 @@
     "editor.fontSize": 16,
     "editor.fontLigatures": false,
     "editor.minimap.sectionHeaderFontSize": 9,
-    "debug.console.fontSize": 15,
-    "scm.inputFontSize": 15,
-    "terminal.integrated.fontSize": 15
+    "debug.console.fontSize": 14,
+    "scm.inputFontSize": 14,
+    "terminal.integrated.fontSize": 14
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:learn_auth/app.dart';
 
 void main() {
-  runApp(const LearnApi());
+  runApp(ProviderScope(child: const LearnApi()));
 }
